@@ -1,0 +1,29 @@
+{
+    "variables": 
+        {
+            "my_aws_access": "",
+            "my_aws_secret": ""
+        },
+    
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "access_key": "{{user `my_aws_access`}}",
+        "secret_key": "{{user `my_aws_secret`}}",
+        "region": "us-west-2",
+        "source_ami": "ami-08692d171e3cf02d6",
+        "instance_type": "t2.micro",
+        "ssh_username": "ubuntu",
+        "ami_name": "packer"
+      }
+    ],
+  
+    "provisioners": [
+      {
+        "type": "shell",
+        "inline": [ "sudo apt-get update", 
+                    "sudo apt-get install git -y",
+                    "sudo apt-get install tree -y"]
+    }
+    ]
+  }
