@@ -8,5 +8,9 @@ node('RHEL_NODE') {
     {
     sh 'mvn package'    
     }
-    
+    stage('Archival')
+    {
+        archiveArtifacts 'target/*.jar'
+        junit 'target/surefire-reports/*.xml'
+    }
 }
