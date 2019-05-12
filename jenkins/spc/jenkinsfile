@@ -1,0 +1,12 @@
+node('RHEL_NODE') {
+    stage('Git')
+    {
+        git 'https://github.com/spring-projects/spring-petclinic.git'
+    }
+    
+    stage('build')
+    {
+    sh 'mvn package'    
+    }
+    
+}
