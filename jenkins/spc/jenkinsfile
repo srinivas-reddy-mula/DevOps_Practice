@@ -14,3 +14,4 @@ node('RHEL_NODE') {
         junit 'target/surefire-reports/*.xml'
     }
 }
+
