@@ -10,7 +10,7 @@ node('RHEL_NODE') {
     }
     stage('Archival')
     {
-        archiveArtifacts 'gameoflife-webtarget/*.war'
+        archiveArtifacts 'gameoflife-web/target/*.war'
         junit 'target/surefire-reports/*.xml'
     }
     }
