@@ -10,8 +10,8 @@ node('RHEL_NODE') {
     }
     stage('Archival')
     {
-        archiveArtifacts 'target/*.jar
-        curl -uadmin:AP6apmaeRLgQtX9mMj2ik5MU5sE -T target/*.jar "http://40.113.217.242:8081/artifactory/mavenarti1/spc
+        archiveArtifacts 'target/*.jar'
+        sh 'curl -uadmin:AP6apmaeRLgQtX9mMj2ik5MU5sE -T target/*.jar "http://40.113.217.242:8081/artifactory/mavenarti1/spc'
     }
     stage('SonarQube') {
             withSonarQubeEnv('SONAR-6.7.4') {
