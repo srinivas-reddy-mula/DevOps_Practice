@@ -1,7 +1,7 @@
 node('RHEL_NODE') {
     stage('Git')
     {
-        git 'https://github.com/spring-projects/spring-petclinic.git'
+        git 'https://github.com/wakaleo/game-of-life.git'
     }
     
     stage('build')
