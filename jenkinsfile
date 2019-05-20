@@ -10,7 +10,7 @@ node('RHEL_NODE') {
     }
     stage('Archival')
     {
-        archiveArtifacts 'gameoflife-web/target/*.war
+        archiveArtifacts 'target/*.jar
         curl -uadmin:AP6apmaeRLgQtX9mMj2ik5MU5sE -T target/*.jar "http://40.113.217.242:8081/artifactory/mavenarti1/spc
     }
     stage('SonarQube') {
