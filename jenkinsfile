@@ -6,6 +6,7 @@ node('RHEL_NODE') {
     
     stage('build')
     {
+    sh 'mvn clean'
     sh 'mvn package'    
     }
     stage('Archival')
