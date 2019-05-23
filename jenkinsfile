@@ -1,4 +1,4 @@
-node('RHEL_NODE') {
+node('') {
     stage('Git')
     {
         git 'https://github.com/spring-projects/spring-petclinic.git'
@@ -6,17 +6,14 @@ node('RHEL_NODE') {
     
     stage('build')
     {
-    sh 'mvn clean'
     sh 'mvn package'    
     }
     stage('Archival')
     {
-        archiveArtifacts 'target/*.jar'
+        git 'https://github.com/dharmatejadevops/forme.git'
+        sh 'cd /home/jenkins/workspace/tfchef'
+        sh 'terraform init '
+        sh 'terraform apply -var "aws_access_key=AKIARQP3LJPCLMFQK2I3" -var "aws_secret_key=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"
     }
-    stage('SonarQube') {
-            withSonarQubeEnv('SONAR-6.7.4') {
-             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-    }
-}
-}
 
+}
