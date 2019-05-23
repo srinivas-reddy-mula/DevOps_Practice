@@ -13,7 +13,7 @@ node('') {
         git 'https://github.com/dharmatejadevops/forme.git'
         sh 'cd /home/jenkins/workspace/tfchef'
         sh 'terraform init '
-        sh 'terraform apply -var "aws_access_key=AKIARQP3LJPCLMFQK2I3" -var "aws_secret_key=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"
+        sh 'terraform apply -var "aws_access_key=XXXXXXXXXXXXXXXXXXX" -var "aws_secret_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     }
 
 }
