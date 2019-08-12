@@ -1,0 +1,40 @@
+{
+    "builders": [{
+      "type": "azure-arm",
+  
+      "client_id": "",
+      "client_secret": "ppppppp-pppp-pppp-pppp-ppppppppppp",
+      "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
+      "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
+  
+      "managed_image_resource_group_name": "myPackerGroup",
+      "managed_image_name": "myPackerImage",
+  
+      "os_type": "Linux",
+      "image_publisher": "Canonical",
+      "image_offer": "UbuntuServer",
+      "image_sku": "16.04.0-LTS",
+  
+      "communicator": "ssh",
+      "winrm_use_ssl": true,
+      "winrm_insecure": true,
+      "winrm_timeout": "5m",
+      "winrm_username": "packer",
+  
+      "location": "Central US",
+      "vm_size": "Standard_BS1"
+    }],
+    "provisioners": [
+        {
+          "type": "shell",
+          "inline": 
+          ["sudo apt-get update","pwd"]
+        },
+        {
+          "type": "chef-solo",
+          "version": "14.11.21",
+          "cookbook_paths": ["D:/DevOps_Practice/chef-starter/chef-repo/cookbooks"],
+          "run_list": ["recipe[apache_cookbook::default]"]
+        }
+      ]
+  }
